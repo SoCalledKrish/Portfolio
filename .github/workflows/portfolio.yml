@@ -17,7 +17,7 @@ jobs:
 
         environment:
             name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
+            url: ${{ steps.deploy.outputs.page_url }}
 
         steps:
             #get access to Portfolio code via pre-build service
@@ -31,7 +31,7 @@ jobs:
             - name: Upload static files
               uses: actions/upload-pages-artifact@v4
               with:
-                path: '.'
+                path: "."
             #deploy to Github pages
             - name: Deploy to Github Pages
               uses: actions/deploy-pages@v4
