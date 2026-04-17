@@ -3,6 +3,8 @@ name: Portfolio CICD
 on:
     push:
          branches: [main]
+    workflow_dispatch:
+
 #permissions for Github pages
 permissions:
     pages: write
