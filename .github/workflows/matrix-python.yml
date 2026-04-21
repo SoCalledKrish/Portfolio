@@ -20,5 +20,11 @@ jobs:
             - name: Install libraries and dependencies
               run: pip install -r requirements.txt
 
+            - name: show current directory
+              run: pwd
+
+            - name: show files in the current directory
+              run: ls -la
+
             - name: Run linter
               run: flake8 Portfolio/app.py
