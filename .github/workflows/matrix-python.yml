@@ -27,4 +27,4 @@ jobs:
               run: ls -la
 
             - name: Run linter
-              run: flake8 Portfolio/app.py
+              run: flake8 .github/workflows/app.py
