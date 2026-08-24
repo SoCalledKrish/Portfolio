@@ -1,0 +1,18 @@
+from pydantic_settings import BaseSettings
+
+
+class Settings(BaseSettings):
+
+    APP_NAME: str = "CloudForge"
+
+    VERSION: str = "1.0.0"
+
+    ENVIRONMENT: str = "development"
+
+    DEBUG: bool = True
+
+    class Config:
+        env_file = ".env"
+
+
+settings = Settings()
