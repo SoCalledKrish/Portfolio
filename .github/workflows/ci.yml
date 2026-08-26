@@ -1,15 +1,13 @@
 name: CI
 
 on:
-    push:
-        branches:
-            - main
-            - master
-
-    pull_request:
-        branches:
-            - main
-            - master
+  push:
+    branches:
+      - '**' 
+    
+  pull_request:
+    branches:
+      - main # Triggers when a PR is targeted to merge INTO main
 
 jobs:
     test:
