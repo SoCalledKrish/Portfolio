@@ -30,3 +30,29 @@ def version():
         "version": settings.VERSION
 
     }
+
+@router.get("/ready")
+def ready():
+
+    return {
+
+        "application": settings.APP_NAME,
+
+        "version": settings.VERSION,
+
+        "ready": True
+
+    }
+
+@router.get("/live")
+def live():
+
+    return {
+
+        "application": settings.APP_NAME,
+
+        "version": settings.VERSION,
+
+        "live": True
+
+    }
