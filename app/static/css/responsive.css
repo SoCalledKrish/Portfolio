@@ -1,46 +1,457 @@
-@media(max-width:768px){
+/* =========================================================
+   TABLET
+========================================================= */
 
-    nav{
+@media (max-width: 900px) {
 
-        flex-direction:column;
+    /* ---------- Navigation ---------- */
 
-        gap:15px;
-
-        padding:20px;
+    .nav-container {
+        padding:
+            15px 20px;
     }
 
-    nav div{
+    .nav-links {
 
-        display:flex;
+        display: none;
 
-        flex-wrap:wrap;
+        position: absolute;
 
-        justify-content:center;
+        top: 71px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: var(--bg);
+
+        border-bottom:
+            1px solid var(--border);
+
+        box-shadow:
+            0 10px 30px
+            rgba(0, 0, 0, 0.08);
+
     }
 
-    nav a{
 
-        margin:5px;
+    .nav-links.active {
+        display: flex;
     }
 
-    section{
 
-        padding:50px 20px;
+    .nav-links a {
+
+        padding:
+            12px 5px;
+
+        border-bottom:
+            1px solid var(--border);
+
     }
 
-    #home h1{
 
-        font-size:36px;
+    .nav-links a:last-child {
+        border-bottom: none;
     }
 
-    #home h2{
 
-        font-size:24px;
+    .menu-toggle {
+        display: block;
     }
 
-    #skills ul{
 
-        justify-content:center;
+    /* ---------- Hero ---------- */
+
+    .hero-container {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 50px;
+
+        padding:
+            70px 25px;
+
+    }
+
+
+    .hero-content {
+
+        max-width: 750px;
+
+        margin: auto;
+
+    }
+
+
+    .hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+
+    }
+
+
+    .hero-socials {
+
+        justify-content: center;
+
+    }
+
+
+    .hero-visual {
+
+        max-width: 650px;
+
+        width: 100%;
+
+        margin: auto;
+
+    }
+
+
+    /* ---------- About ---------- */
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    /* ---------- Skills ---------- */
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    /* ---------- Certifications ---------- */
+
+    .certifications-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+    /* ---------- Global ---------- */
+
+    body {
+
+        overflow-x: hidden;
+
+    }
+
+
+    .section {
+
+        padding:
+            70px 18px;
+
+    }
+
+
+    .section-container {
+
+        width: 100%;
+
+    }
+
+
+    /* ---------- Navigation ---------- */
+
+    .nav-container {
+
+        padding:
+            14px 18px;
+
+    }
+
+
+    .logo {
+
+        font-size: 21px;
+
+    }
+
+
+    .nav-actions {
+
+        gap: 6px;
+
+    }
+
+
+    .theme-toggle,
+    .menu-toggle {
+
+        width: 38px;
+        height: 38px;
+
+    }
+
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+
+        min-height:
+            auto;
+
+    }
+
+
+    .hero-container {
+
+        padding:
+            75px 18px;
+
+        gap: 45px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            clamp(42px, 13vw, 58px);
+
+    }
+
+
+    .hero h2 {
+
+        font-size:
+            clamp(20px, 6vw, 26px);
+
+    }
+
+
+    .hero-description {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .btn {
+
+        text-align:
+            center;
+
+        width:
+            100%;
+
+    }
+
+
+    /* ---------- Terminal ---------- */
+
+    .terminal-body {
+
+        padding:
+            20px;
+
+        font-size:
+            12px;
+
+        text-align:
+            left;
+
+        overflow-x:
+            auto;
+
+    }
+
+
+    /* ---------- Section Heading ---------- */
+
+    .section-heading {
+
+        margin-bottom:
+            35px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    /* ---------- Skills ---------- */
+
+    .skills-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* ---------- Projects ---------- */
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* ---------- Certifications ---------- */
+
+    .certifications-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* ---------- Stats ---------- */
+
+    .about-stats {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    /* ---------- Timeline ---------- */
+
+    .timeline {
+
+        padding-left:
+            25px;
+
+    }
+
+
+    .timeline-dot {
+
+        left:
+            -32px;
+
+    }
+
+
+    .timeline-content {
+
+        padding:
+            22px;
+
+    }
+
+
+    /* ---------- Footer ---------- */
+
+    .footer-container {
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+
+        gap:
+            8px;
+
+        padding:
+            25px 18px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .hero-container {
+
+        padding-left:
+            14px;
+
+        padding-right:
+            14px;
+
+    }
+
+
+    .section {
+
+        padding-left:
+            14px;
+
+        padding-right:
+            14px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            40px;
+
+    }
+
+
+    .terminal-body {
+
+        font-size:
+            11px;
+
     }
 
 }
