@@ -9,7 +9,12 @@ on:
     branches:
       - main # Triggers when a PR is targeted to merge INTO main
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
+    #Run tests on the codebase
     test:
         runs-on: ubuntu-latest
         steps:
@@ -31,6 +36,7 @@ jobs:
               run: |
                 python -m pytest tests/
 
+    #Build the docker image for the application          
     docker-build:
         runs-on: ubuntu-latest
 
@@ -46,3 +52,53 @@ jobs:
                 docker build \
                 -t abhiram-portfolio:ci \
                 .
+
+    #Push image to Github Container Registry
+    docker-push:
+        name: Push Docker Image to GCR
+        
+        runs-on: ubuntu-latest
+
+        needs:
+            - docker-build
+
+        if: github.event_name == 'push'
+
+        permissions:
+            contents: read
+            packages: write
+
+        steps:
+
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Log in to Github Container Registry
+              uses: docker/login-action@v3
+              with:
+                registry: ${{ env.REGISTRY }}
+                username: ${{ github.actor }}
+                password: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Setup Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Generate Docker Image Metadata
+              id: meta
+              uses: docker/metadata-action@v5
+              with:
+                images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+                tags: |
+                    type=raw,value=latest
+                    type=sha
+                    
+            - name: Build and Push Docker Image
+              uses: docker/build-push-action@v6
+
+              with:
+                context: .
+                file: ./Dockerfile
+                push: true
+                tags: ${{ steps.meta.outputs.tags }}
+                labels: ${{ steps.meta.outputs.labels }}
+
